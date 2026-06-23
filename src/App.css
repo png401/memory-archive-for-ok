@@ -94,8 +94,8 @@ body {
 
 .card-img {
   width: 100%;
-  height: 260px;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   display: block;
 }
 
@@ -257,4 +257,323 @@ body {
 .modal-actions button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.detail-modal {
+  background: #f2f2f7;
+  border-radius: 20px 20px 0 0;
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.detail-imgs {
+  width: 100%;
+}
+
+.detail-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.detail-body {
+  padding: 1rem 1.25rem;
+}
+
+.detail-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.edit-btn {
+  background: none;
+  border: none;
+  color: #007aff;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.edit-form {
+  margin-bottom: 1rem;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0,0,0,0.4);
+  border: none;
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comments {
+  margin-top: 1.25rem;
+  border-top: 0.5px solid #e5e5ea;
+  padding-top: 1rem;
+}
+
+.comments-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1c1c1e;
+  margin-bottom: 0.75rem;
+}
+
+.comment {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+}
+
+.comment-from {
+  font-weight: 600;
+  color: #1c1c1e;
+  min-width: fit-content;
+}
+
+.comment-content {
+  color: #3a3a3c;
+}
+
+.comment-input {
+  display: flex;
+  gap: 8px;
+  margin-top: 0.75rem;
+  align-items: center;
+}
+
+.comment-name {
+  width: 70px !important;
+  background: #e5e5ea;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-family: inherit;
+  color: #1c1c1e;
+}
+
+.comment-input input:last-of-type {
+  flex: 1;
+  background: #e5e5ea;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-family: inherit;
+  color: #1c1c1e;
+}
+
+.comment-input button {
+  background: #007aff;
+  border: none;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  margin-bottom: 1rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+.cal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.cal-header span {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1c1c1e;
+}
+
+.cal-header button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #007aff;
+  cursor: pointer;
+  padding: 0 0.5rem;
+}
+
+.cal-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  margin-bottom: 0.25rem;
+}
+
+.cal-weekday {
+  text-align: center;
+  font-size: 12px;
+  color: #8e8e93;
+  padding: 4px 0;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 2px;
+}
+
+.cal-day {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 13px;
+  color: #1c1c1e;
+  position: relative;
+  cursor: default;
+  min-width: 0;
+}
+
+.cal-day.has-memory {
+  cursor: pointer;
+  font-weight: 600;
+  color: #007aff;
+}
+
+.cal-day.has-memory:hover {
+  background: #e5f0ff;
+}
+
+.cal-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #007aff;
+  position: absolute;
+  bottom: 4px;
+}
+
+.cal-day.empty {
+  pointer-events: none;
+}
+
+.cal-results {
+  margin-top: 1rem;
+}
+
+.cal-results-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1c1c1e;
+  margin-bottom: 0.75rem;
+}
+
+.tree-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.tree-stats {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #fff;
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  width: 100%;
+  justify-content: center;
+}
+
+.tree-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tree-stat-num {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1c1c1e;
+}
+
+.tree-stat-label {
+  font-size: 12px;
+  color: #8e8e93;
+}
+
+.tree-stat-div {
+  width: 1px;
+  height: 32px;
+  background: #e5e5ea;
+}
+
+.pixel-canvas {
+  margin: 1rem 0 1.5rem;
+  image-rendering: pixelated;
+}
+
+.tree-label {
+  font-size: 15px;
+  color: #3a3a3c;
+  text-align: center;
+}
+
+.forest-tab {
+  padding: 1rem 0;
+}
+
+.forest-stats {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.forest-count {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1c1c1e;
+}
+
+.forest-label {
+  font-size: 14px;
+  color: #8e8e93;
+}
+
+.forest-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  background: #e8f5e3;
+  border-radius: 16px;
+  padding: 1rem;
+  min-height: 120px;
 }
