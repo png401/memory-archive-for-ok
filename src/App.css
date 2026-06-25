@@ -48,7 +48,8 @@ body {
   background: #e5e5ea;
   border-radius: 10px;
   padding: 2px;
-  margin: 0 0 0.75rem 0;
+  margin-bottom: 0.75rem;
+  overflow-x: auto;
 }
 
 .tab {
@@ -56,13 +57,15 @@ body {
   background: none;
   border: none;
   color: #8e8e93;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
-  padding: 6px 8px;
+  padding: 6px 4px;
   cursor: pointer;
   border-radius: 8px;
   font-family: inherit;
   transition: all 0.2s;
+  white-space: nowrap;
+  min-width: 44px;
 }
 
 .tab.active {
@@ -72,7 +75,7 @@ body {
 }
 
 .section {
-  padding: 1rem 1.25rem;
+  padding: 1rem 0;
 }
 
 .today-banner {
@@ -81,7 +84,7 @@ body {
   padding: 0.75rem 1rem;
   font-size: 13px;
   color: #8e8e93;
-  margin-bottom: 1rem;
+  margin: 0 1.25rem 1rem;
 }
 
 .card {
@@ -146,7 +149,8 @@ body {
 }
 
 .add-btn {
-  width: 100%;
+  width: calc(100% - 2.5rem);
+  margin: 0.5rem 1.25rem 0;
   background: #fff;
   border: none;
   border-radius: 14px;
@@ -155,15 +159,62 @@ body {
   font-size: 15px;
   font-weight: 500;
   cursor: pointer;
-  margin-top: 0.25rem;
   font-family: inherit;
   box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 }
 
-.add-btn:hover {
-  background: #f2f2f7;
+.add-btn:hover { background: #f2f2f7; }
+
+/* 포토 그리드 */
+.pg-container { padding: 0 1.25rem; }
+
+.pg-group { margin-bottom: 1.5rem; }
+
+.pg-date-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1c1c1e;
+  margin-bottom: 4px;
 }
 
+.pg-grid {
+  display: grid;
+  gap: 2px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.pg-grid-1 { grid-template-columns: 1fr; }
+.pg-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.pg-grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+.pg-cell {
+  aspect-ratio: 1;
+  overflow: hidden;
+  cursor: pointer;
+  background: #e5e5ea;
+  position: relative;
+}
+
+.pg-cell-tall { grid-row: span 2; aspect-ratio: auto; }
+
+.pg-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.15s;
+}
+
+.pg-cell:hover img { opacity: 0.88; }
+
+.pg-cell-empty {
+  width: 100%;
+  height: 100%;
+  background: #e5e5ea;
+}
+
+/* 모달 */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -215,10 +266,7 @@ body {
   font-family: inherit;
 }
 
-.field textarea {
-  height: 80px;
-  resize: none;
-}
+.field textarea { height: 80px; resize: none; }
 
 .field small {
   font-size: 11px;
@@ -244,21 +292,11 @@ body {
   font-family: inherit;
 }
 
-.modal-actions button:first-child {
-  background: #fff;
-  color: #8e8e93;
-}
+.modal-actions button:first-child { background: #fff; color: #8e8e93; }
+.modal-actions button:last-child { background: #007aff; color: #fff; }
+.modal-actions button:disabled { opacity: 0.5; cursor: not-allowed; }
 
-.modal-actions button:last-child {
-  background: #007aff;
-  color: #fff;
-}
-
-.modal-actions button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
+/* 상세 모달 */
 .detail-modal {
   background: #f2f2f7;
   border-radius: 20px 20px 0 0;
@@ -269,19 +307,10 @@ body {
   position: relative;
 }
 
-.detail-imgs {
-  width: 100%;
-}
+.detail-imgs { width: 100%; }
+.detail-img { width: 100%; height: auto; display: block; }
 
-.detail-img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.detail-body {
-  padding: 1rem 1.25rem;
-}
+.detail-body { padding: 1rem 1.25rem; }
 
 .detail-meta {
   display: flex;
@@ -299,9 +328,7 @@ body {
   font-family: inherit;
 }
 
-.edit-form {
-  margin-bottom: 1rem;
-}
+.edit-form { margin-bottom: 1rem; }
 
 .close-btn {
   position: absolute;
@@ -340,15 +367,8 @@ body {
   font-size: 14px;
 }
 
-.comment-from {
-  font-weight: 600;
-  color: #1c1c1e;
-  min-width: fit-content;
-}
-
-.comment-content {
-  color: #3a3a3c;
-}
+.comment-from { font-weight: 600; color: #1c1c1e; min-width: fit-content; }
+.comment-content { color: #3a3a3c; }
 
 .comment-input {
   display: flex;
@@ -393,14 +413,15 @@ body {
   justify-content: center;
 }
 
+/* 달력 */
 .calendar {
   background: #fff;
   border-radius: 16px;
   padding: 1rem;
   box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-  margin-bottom: 1rem;
+  margin: 0 1.25rem 1rem;
   overflow: hidden;
-  width: 100%;
+  width: calc(100% - 2.5rem);
 }
 
 .cal-header {
@@ -464,9 +485,7 @@ body {
   color: #007aff;
 }
 
-.cal-day.has-memory:hover {
-  background: #e5f0ff;
-}
+.cal-day.has-memory:hover { background: #e5f0ff; }
 
 .cal-dot {
   width: 4px;
@@ -477,13 +496,9 @@ body {
   bottom: 4px;
 }
 
-.cal-day.empty {
-  pointer-events: none;
-}
+.cal-day.empty { pointer-events: none; }
 
-.cal-results {
-  margin-top: 1rem;
-}
+.cal-results { margin: 0 1.25rem; }
 
 .cal-results-title {
   font-size: 15px;
@@ -492,11 +507,12 @@ body {
   margin-bottom: 0.75rem;
 }
 
+/* 나무 */
 .tree-tab {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem 0;
+  padding: 1rem 1.25rem;
 }
 
 .tree-stats {
@@ -512,43 +528,18 @@ body {
   justify-content: center;
 }
 
-.tree-stat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+.tree-stat { display: flex; flex-direction: column; align-items: center; }
+.tree-stat-num { font-size: 24px; font-weight: 700; color: #1c1c1e; }
+.tree-stat-label { font-size: 12px; color: #8e8e93; }
+.tree-stat-div { width: 1px; height: 32px; background: #e5e5ea; }
 
-.tree-stat-num {
-  font-size: 24px;
-  font-weight: 700;
-  color: #1c1c1e;
-}
+.pixel-canvas { margin: 1rem 0 1.5rem; }
 
-.tree-stat-label {
-  font-size: 12px;
-  color: #8e8e93;
-}
+.tree-label { font-size: 15px; color: #3a3a3c; text-align: center; }
+.tree-season-label { font-size: 13px; color: #8e8e93; margin-top: 4px; }
 
-.tree-stat-div {
-  width: 1px;
-  height: 32px;
-  background: #e5e5ea;
-}
-
-.pixel-canvas {
-  margin: 1rem 0 1.5rem;
-  image-rendering: pixelated;
-}
-
-.tree-label {
-  font-size: 15px;
-  color: #3a3a3c;
-  text-align: center;
-}
-
-.forest-tab {
-  padding: 1rem 0;
-}
+/* 숲 */
+.forest-tab { padding: 1rem 1.25rem; }
 
 .forest-stats {
   display: flex;
@@ -557,16 +548,8 @@ body {
   margin-bottom: 1.5rem;
 }
 
-.forest-count {
-  font-size: 32px;
-  font-weight: 700;
-  color: #1c1c1e;
-}
-
-.forest-label {
-  font-size: 14px;
-  color: #8e8e93;
-}
+.forest-count { font-size: 32px; font-weight: 700; color: #1c1c1e; }
+.forest-label { font-size: 14px; color: #8e8e93; }
 
 .forest-grid {
   display: flex;
@@ -576,4 +559,70 @@ body {
   border-radius: 16px;
   padding: 1rem;
   min-height: 120px;
+}
+
+.fortune-wrapper {
+  margin: 0 1.25rem 1rem;
+}
+
+.fortune-cookie {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  transition: transform 0.15s;
+}
+
+.fortune-cookie:hover {
+  transform: scale(1.02);
+}
+
+.fortune-cookie-icon {
+  font-size: 40px;
+}
+
+.fortune-hint {
+  font-size: 14px;
+  color: #8e8e93;
+}
+
+.fortune-opened {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.fortune-icon-small {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.fortune-content {
+  font-size: 15px;
+  color: #1c1c1e;
+  line-height: 1.6;
+  font-family: Georgia, serif;
+}
+
+.fortune-source {
+  font-size: 13px;
+  color: #8e8e93;
+  margin-top: 4px;
+}
+
+.fortune-tomorrow {
+  font-size: 12px;
+  color: #c7c7cc;
+  margin-top: 6px;
 }
